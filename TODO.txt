@@ -1,0 +1,40 @@
+## TODO ##
+- Add validation of evalParams, min temp < max Temp, date1 < date2 date format ok ,etc
+- format forms so that errors are displayed near offending field 
+- add error messages besides eval params text fields
+- display timestamps on the X axis of the histogram
+ - histogram: draw(day/hours) on  X axis 
+- make program even more robust if file have invalid format. Error 500 if file > limit configured
+- Add validation of data file: point number progressive (no holes?) , timestamps progressive (no holes?)
+- JS file pre validation (size, extension, empty) before user press btn "upload"
+- Upload file in a temp dir (which might be configured) & remove file and dir after they are no loner needed
+- cron job to be sure to remove all temp files ?
+- data time input in GUI: if seconds, minutes are missing assume == 00 min :00 sec 
+- give more info why data in file are invalid (where)
+- multiple files ?
+- Add proper logging
+- log in ? + store settings (eval param somewhere)
+- Make more robust respect date/time input (no error 400)!!
+- Btn Evaluate, Upload should be enabled only if text/file fields are not empty / correct
+- Add possibility to see the data format to parse the timestamps with
+- Add custom date / time widget?
+- make timestamp format configurable (US / UK ( custom) / timezone?)
+- improve usability: make file resettable -reset all fields 
+- import/upload evaluation param?
+- re-organize JSPs: put common parts of JSP like eval params form, file name in segnments, velocity / tiles fragments?
+- remove useless attrib from session
+- upload multiple files
+- try to deploy on tomcat (on server)
+- generate the table using same JSON dataset used by histogram 
+- eventually if javascript not available generate table (histogram) JSP (svg) ?
+- eventually remove the dataset from model, keep only JSON dataset
+- Add login
+- rewrite the json generation using some JSON Java API (json.simple?) - add junit tests
+- re-style the rect tooltips -> event. http://stackoverflow.com/questions/21703318/is-it-possible-to-enhance-the-default-appearance-of-svg-title-tooltip
+ - in home.jsp: disable the "upload" submit btn if no file has yet be chosen
+ - in home.jsp as soon a file is chosen content should be (roughly) checked and upload should be automatic(no need for upload btn)
+ 
+
+## DONE ##
+- GRAPH results using D3js
+- histogram draw Y axis + min & max temperature values (as horizontal dashed lines )

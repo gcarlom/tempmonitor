@@ -1,0 +1,120 @@
+/* @import url(//fonts.googleapis.com/css?family=Caveat); */
+
+body {
+	color:black;
+	font-family:franklin-gothic-urw,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h1#title {
+	color: rgb(0, 117, 187);
+	font-size: 40px; /*2.8em;*/
+	font-style: normal;
+/* 	font-family: 'Caveat', sans-serif; */
+}
+
+div#diagram {
+	margin-top: 2em;
+	margin-left: 1.5%;
+	width: 95%;
+	overflow-x: auto;
+}
+
+div#sample-area {
+	margin-top: 2em;
+	font-size: 1.05em;
+}
+
+#file-upload-form span.error-message {
+	color: red;
+	font-size:0.8em;
+}
+span.file-ok {
+	color: green;
+	font-weight: bold;
+}
+
+span.file-label {
+	color: grey;
+}
+
+tr.sample-ok {
+	background-color: #c6fccc;	/* light green */
+}
+
+tr.sample-nok td.temp {
+	background-color: #fefe6a;
+}
+
+tr.sample-nok {
+	background-color: #ff8989;/* light red   -  #fefe6a; yellow */	
+}
+
+tr.sample-dont-care td.temp {
+	text-decoration: line-through;
+}
+
+tr.sample-dont-care {
+	background-color:#f2f2f2; /* light grey */
+}
+
+tr.sample-undefined {
+	background-color: orange;	
+}
+
+footer {
+	margin-top: 3em;
+    padding: 1em;
+    clear: left;
+    text-align: center;
+	font-size: 0.75em;
+    color: black;
+    background-color: whitesmoke;
+}
+
+rect.temp-ok {
+   stroke: black;
+   fill: green;
+}
+ 
+rect.temp-ok:hover {
+   stroke: black;
+   fill: #3df553;
+}
+ 
+rect.temp-nok {
+   stroke: black;
+   fill: #ee2222;
+}
+ 
+rect.temp-nok:hover {
+   stroke: black;
+   fill: #eede00;
+}
+ 
+rect.temp-dont-care {
+   stroke: black;
+   fill: #d9d9d9;
+}
+ 
+rect.temp-dont-care:hover {
+   stroke: black;
+   fill: #f9f9f9;
+   border: 5px;
+}
+
+.axis { color:black;
+		font-family sans-serif;
+}
+		
+.axis-x {
+	font: 10px;
+}
+
+.axis-y {
+	font: 14px;
+}
+
+line.min-threshold, line.max-threshold {
+	stroke-dasharray: 2 2;
+	stroke: black;
+}

@@ -1,0 +1,100 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+// for  web-app
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+// jetty plugin (6.1.25) of gradle 2.6 only supports servlet 2.5 -> using gretty
+//  apply plugin: 'jetty'
+
+
+apply plugin: 'org.akhikhl.gretty'
+
+// JDK 7
+// TODO GIM: Check if 1.7 is compatible with domain version of tomcat  (mastermind uses 1.6)! (JDK1.8 would be the best!!)
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories { 
+    mavenCentral()
+    jcenter() // for gretty plugin
+}
+
+mainClassName = 'com.gcmassari.tempmonitor.main.Main'
+
+
+
+jar {
+    baseName = 'temp-monitor'
+    version =  '0.1.0'
+}
+
+
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    compile "com.opencsv:opencsv:3.8"
+    testCompile "junit:junit:4.12"
+    testCompile "org.hamcrest:hamcrest-all:1.3"
+
+	// for web-app
+	   // providedCompile 'javax.servlet:servlet-api:2.5'
+	providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+
+  	compile 'org.springframework:spring-webmvc:4.3.5.RELEASE'
+ 
+   	runtime 'javax.servlet:jstl:1.2'
+ 	
+   // needed for CommonsMultipartResolver in multipartResolver(	
+   compile "commons-fileupload:commons-fileupload:1.3.1"
+
+   // Needed for java bean validation
+   compile "javax.validation:validation-api:1.1.0.Final"
+   
+   /* Needed to use JSTL core (c:tags, <%@ taglib uri="http://java.sun.com/jsp/jstl/core"..) with Tomcat 7.0.x: adds the standard-1.1.2.jar to the WAR file*/
+   compile 'taglibs:standard:1.1.2'
+}
+
+
+//Gretty Embedded Jetty
+buildscript {
+  repositories {
+    jcenter()
+  }
+  
+  dependencies {
+    classpath 'org.akhikhl.gretty:gretty:1.4.0'  // latest version on 2017-01
+//    // classpath 'org.akhikhl.gretty:gretty:+'
+  }
+}
+
+
+// for web-app
+// jettyRun {
+//    reload = "automatic"
+//    scanIntervalSeconds = 1
+// }
+
+
+// Don't use Jetty8, even it's a servlet 3.0+ container,
+// but not support non-jar WebApplicationInitializer scanning.
+// It will cause "No Spring WebApplicationInitializer types detected on classpath"
+gretty {
+  port = 8080
+  contextPath = 'tempmonitor'
+  servletContainer = 'jetty9' //tomcat7 or tomcat8
+}
+
+war.archiveName "tempmonitor.war"
+
+// for web-app
+// [GC]: Added this lines to let spring boot run with tomcat 7.0 - otherwise you get an unsupported version (java7)
+ext['tomcat.version'] = '7.0.59'
+ 
+dependencies {
+      compile group:'org.apache.tomcat', name:'tomcat-juli', version:property('tomcat.version')
+}
+
+
