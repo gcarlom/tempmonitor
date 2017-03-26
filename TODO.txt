@@ -1,7 +1,5 @@
-## TODO ##
-- Add validation of evalParams, min temp < max Temp, date1 < date2 date format ok ,etc
-- format forms so that errors are displayed near offending field 
-- add error messages besides eval params text fields
+## TODO 
+- add access login
 - display timestamps on the X axis of the histogram
  - histogram: draw(day/hours) on  X axis 
 - make program even more robust if file have invalid format. Error 500 if file > limit configured
@@ -38,3 +36,4 @@
 ## DONE ##
 - GRAPH results using D3js
 - histogram draw Y axis + min & max temperature values (as horizontal dashed lines )
+- validate the eval. parameters (temperature min, max + dates)
