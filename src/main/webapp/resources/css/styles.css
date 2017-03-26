@@ -24,7 +24,7 @@ div#sample-area {
 	font-size: 1.05em;
 }
 
-#file-upload-form span.error-message {
+form span.error-message {
 	color: red;
 	font-size:0.8em;
 }

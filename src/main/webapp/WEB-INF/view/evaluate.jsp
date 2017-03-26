@@ -35,19 +35,22 @@
 		<form:form modelAttribute="evaluationParams" action="showResults" cssStyle="param-form" autocomplete="off" method="POST" name="evaluationParams">
 			 <%-- bind to evaluateParams --%>
 		
-			<form:errors path="minTemp" cssClass="validation-error"/><br/>
-			
+<%-- 			<form:errors path="minTemp" cssClass="validation-error"/><br/> --%>
 			Min temperature (&deg;C)&nbsp;
-			<form:input path="minTemp" type="text" autofocus="autofocus" autocomplete="off"/><br/>
+			<form:input path="minTemp" type="text" autofocus="autofocus" autocomplete="off"/>
+			<form:errors cssClass="error-message" path="minTemp" /><br/>
 
 			Max temperature (&deg;C)&nbsp;
-			<form:input path="maxTemp" type="text" autofocus="autofocus" autocomplete="off"/><br/>
+			<form:input path="maxTemp" type="text" autofocus="autofocus" autocomplete="off"/>
+			<form:errors cssClass="error-message" path="maxTemp" /><br/>
 						
 			Ignore before &nbsp;
-			<form:input path="ignoreDataBefore" type="text" autofocus="autofocus" autocomplete="off"/><br/>
+			<form:input path="ignoreDataBefore" type="text" autofocus="autofocus" autocomplete="off"/>
+			<form:errors cssClass="error-message" path="ignoreDataBefore" /><br/>
 						
 			Ignore after &nbsp; 
-			<form:input path="ignoreDataAfter" type="text" autofocus="autofocus" autocomplete="off"/><br/>
+			<form:input path="ignoreDataAfter" type="text" autofocus="autofocus" autocomplete="off"/>
+			<form:errors cssClass="error-message" path="ignoreDataAfter" /><br/>
 
 				<%-- Uncomment this if you prefer not to have sessionId in URL
  					<form:input path="sessionId" type="hidden" /> <!-- bind to moveForm.sessionId--> 
