@@ -1,10 +1,21 @@
-Temerature Monitor
+Temperature Monitor
 =================
 
-A Web application using
+
+A Web application which parses text file containing a temperature log and checks whether values were within a give temperature range.
+
+
+Technology stack:
 - Spring MVC
 - Gradle to build project and generate the WAR file
 - gretty plugin 
+
+Temperature CSV file should have following format:
+```
+  Point, Timestamp (US format), Temperature (° C), Alarms,
+  1,12/14/2016 11:15:24 AM,5.1,,
+```
+Note: The first line is regarded as Header and is ignored
 
 ### Developer Instructions
 
@@ -16,11 +27,11 @@ A Web application using
 
 
 
-####Running / Testing the application locally
+#### Running / Testing the application locally
 
-Create Eclipse projct files / synchronize Eclipse project 
+Create Eclipse project files / synchronize Eclipse project
 ```
-gradle clean eclipe
+gradle clean eclipse
 ```
 
 
@@ -30,8 +41,7 @@ gradle clean jettyRun
 ```
 
 
-Debug application on local server (gretty, jetty)
-
+Debug application on local server (gretty, jetty 9)
 ```
 gradle clean jettyRunDebug
 ```
@@ -47,7 +57,7 @@ http://localhost:8080/tempmonitor/
 To Generate the WAR file
 ```
 gradle clean war
-
 ```
+
 You will find the WAR file under the build/libs directory
 
